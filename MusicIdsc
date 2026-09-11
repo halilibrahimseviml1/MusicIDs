@@ -1,0 +1,496 @@
+local ScreenGui = Instance.new("ScreenGui")
+local MainFrame = Instance.new("Frame")
+local UIStroke = Instance.new("UIStroke")
+local Title = Instance.new("TextLabel")
+local SubTitle = Instance.new("TextLabel")
+local KeyBox = Instance.new("TextBox")
+local CheckButton = Instance.new("TextButton")
+local GetKeyButton = Instance.new("TextButton")
+
+ScreenGui.Parent = game.CoreGui
+
+MainFrame.Name = "MainFrame"
+MainFrame.Parent = ScreenGui
+MainFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+MainFrame.Position = UDim2.new(0.5, -150, 0.5, -100)
+MainFrame.Size = UDim2.new(0, 300, 0, 220)
+MainFrame.Active = true
+MainFrame.Draggable = true
+
+UIStroke.Parent = MainFrame
+UIStroke.Color = Color3.fromRGB(255, 255, 0)
+UIStroke.Thickness = 3
+
+Title.Name = "Title"
+Title.Parent = MainFrame
+Title.BackgroundTransparency = 1
+Title.Position = UDim2.new(0, 0, 0, 10)
+Title.Size = UDim2.new(1, 0, 0, 30)
+Title.Font = Enum.Font.GothamBold
+Title.Text = "LightningHub Key system"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextSize = 18
+
+SubTitle.Name = "SubTitle"
+SubTitle.Parent = MainFrame
+SubTitle.BackgroundTransparency = 1
+SubTitle.Position = UDim2.new(0, 0, 0, 40)
+SubTitle.Size = UDim2.new(1, 0, 0, 20)
+SubTitle.Font = Enum.Font.Gotham
+SubTitle.Text = "Join our Discord server and get the key"
+SubTitle.TextColor3 = Color3.fromRGB(180, 180, 180)
+SubTitle.TextSize = 12
+
+KeyBox.Name = "KeyBox"
+KeyBox.Parent = MainFrame
+KeyBox.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+KeyBox.Position = UDim2.new(0.1, 0, 0, 75)
+KeyBox.Size = UDim2.new(0.8, 0, 0, 35)
+KeyBox.Font = Enum.Font.Gotham
+KeyBox.PlaceholderText = "Enter Key..."
+KeyBox.Text = ""
+KeyBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+KeyBox.TextSize = 14
+
+CheckButton.Name = "CheckButton"
+CheckButton.Parent = MainFrame
+CheckButton.BackgroundColor3 = Color3.fromRGB(0, 170, 0)
+CheckButton.Position = UDim2.new(0.1, 0, 0, 120)
+CheckButton.Size = UDim2.new(0.8, 0, 0, 35)
+CheckButton.Font = Enum.Font.GothamBold
+CheckButton.Text = "Check Key"
+CheckButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+CheckButton.TextSize = 14
+
+GetKeyButton.Name = "GetKeyButton"
+GetKeyButton.Parent = MainFrame
+GetKeyButton.BackgroundColor3 = Color3.fromRGB(80, 80, 255)
+GetKeyButton.Position = UDim2.new(0.1, 0, 0, 165)
+GetKeyButton.Size = UDim2.new(0.8, 0, 0, 35)
+GetKeyButton.Font = Enum.Font.GothamBold
+GetKeyButton.Text = "Get Key"
+GetKeyButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+GetKeyButton.TextSize = 14
+
+GetKeyButton.MouseButton1Click:Connect(function()
+    setclipboard("https://discord.gg/senindiscordlinkin")
+end)
+
+CheckButton.MouseButton1Click:Connect(function()
+    if KeyBox.Text == "halilibrahimseviml1" then
+        ScreenGui:Destroy()
+
+        local HttpService = game:GetService("HttpService")
+        local Players = game:GetService("Players")
+        local CoreGui = game:GetService("CoreGui")
+        local LocalPlayer = Players.LocalPlayer
+
+        local API_URL = "https://musicid-1.onrender.com/songs"
+        local ADMIN_USER = "halilibrahimseviml1"
+
+        local parentGui = CoreGui
+        if gethui then 
+            parentGui = gethui() 
+        elseif not pcall(function() return CoreGui.Name end) then
+            parentGui = LocalPlayer:WaitForChild("PlayerGui")
+        end
+
+        if parentGui:FindFirstChild("LightningHubMusic") then
+            parentGui.LightningHubMusic:Destroy()
+        end
+
+        local ScreenGui = Instance.new("ScreenGui")
+        ScreenGui.Name = "LightningHubMusic"
+        ScreenGui.Parent = parentGui
+
+        local MainFrame = Instance.new("Frame")
+        MainFrame.Size = UDim2.new(0, 520, 0, 340)
+        MainFrame.Position = UDim2.new(0.5, -260, 0.5, -170)
+        MainFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 30)
+        MainFrame.ClipsDescendants = true
+        MainFrame.Active = true
+        MainFrame.Draggable = true
+        MainFrame.Parent = ScreenGui
+        Instance.new("UICorner", MainFrame).CornerRadius = UDim.new(0, 8)
+
+        local TopBar = Instance.new("Frame")
+        TopBar.Size = UDim2.new(1, 0, 0, 35)
+        TopBar.BackgroundColor3 = Color3.fromRGB(20, 20, 25)
+        TopBar.BorderSizePixel = 0
+        TopBar.Parent = MainFrame
+        Instance.new("UICorner", TopBar).CornerRadius = UDim.new(0, 8)
+
+        local BottomFix = Instance.new("Frame")
+        BottomFix.Size = UDim2.new(1, 0, 0, 8)
+        BottomFix.Position = UDim2.new(0, 0, 1, -8)
+        BottomFix.BackgroundColor3 = Color3.fromRGB(20, 20, 25)
+        BottomFix.BorderSizePixel = 0
+        BottomFix.Parent = TopBar
+
+        local TitleLabel = Instance.new("TextLabel")
+        TitleLabel.Size = UDim2.new(0.6, 0, 1, 0)
+        TitleLabel.Position = UDim2.new(0, 15, 0, 0)
+        TitleLabel.BackgroundTransparency = 1
+        TitleLabel.Text = "LightningHub⚡️Music ID Archive"
+        TitleLabel.TextColor3 = Color3.fromRGB(255, 215, 0)
+        TitleLabel.TextXAlignment = Enum.TextXAlignment.Left
+        TitleLabel.Font = Enum.Font.GothamBold
+        TitleLabel.TextSize = 14
+        TitleLabel.Parent = TopBar
+
+        local MinimizeBtn = Instance.new("TextButton")
+        MinimizeBtn.Size = UDim2.new(0, 30, 0, 25)
+        MinimizeBtn.Position = UDim2.new(1, -75, 0, 5)
+        MinimizeBtn.BackgroundColor3 = Color3.fromRGB(50, 50, 55)
+        MinimizeBtn.Text = "-"
+        MinimizeBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+        MinimizeBtn.Font = Enum.Font.GothamBold
+        MinimizeBtn.TextSize = 18
+        MinimizeBtn.Parent = TopBar
+        Instance.new("UICorner", MinimizeBtn).CornerRadius = UDim.new(0, 6)
+
+        local minimized = false
+        MinimizeBtn.MouseButton1Click:Connect(function()
+            minimized = not minimized
+            if minimized then
+                MainFrame.Size = UDim2.new(0, 520, 0, 35)
+            else
+                MainFrame.Size = UDim2.new(0, 520, 0, 340)
+            end
+        end)
+
+        local CloseBtn = Instance.new("TextButton")
+        CloseBtn.Size = UDim2.new(0, 30, 0, 25)
+        CloseBtn.Position = UDim2.new(1, -40, 0, 5)
+        CloseBtn.BackgroundColor3 = Color3.fromRGB(220, 60, 60)
+        CloseBtn.Text = "X"
+        CloseBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+        CloseBtn.Font = Enum.Font.GothamBold
+        CloseBtn.Parent = TopBar
+        Instance.new("UICorner", CloseBtn).CornerRadius = UDim.new(0, 6)
+        CloseBtn.MouseButton1Click:Connect(function() ScreenGui:Destroy() end)
+
+        local Sidebar = Instance.new("Frame")
+        Sidebar.Size = UDim2.new(0, 130, 1, -35)
+        Sidebar.Position = UDim2.new(0, 0, 0, 35)
+        Sidebar.BackgroundColor3 = Color3.fromRGB(20, 20, 25)
+        Sidebar.BorderSizePixel = 0
+        Sidebar.Parent = MainFrame
+
+        local MainTabBtn = Instance.new("TextButton")
+        MainTabBtn.Size = UDim2.new(1, -10, 0, 35)
+        MainTabBtn.Position = UDim2.new(0, 5, 0, 10)
+        MainTabBtn.BackgroundColor3 = Color3.fromRGB(45, 45, 55)
+        MainTabBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+        MainTabBtn.Text = "Main"
+        MainTabBtn.Font = Enum.Font.GothamBold
+        MainTabBtn.Parent = Sidebar
+        Instance.new("UICorner", MainTabBtn).CornerRadius = UDim.new(0, 6)
+
+        local GlobalChatBtn = Instance.new("TextButton")
+        GlobalChatBtn.Size = UDim2.new(1, -10, 0, 35)
+        GlobalChatBtn.Position = UDim2.new(0, 5, 0, 50)
+        GlobalChatBtn.BackgroundColor3 = Color3.fromRGB(35, 35, 45)
+        GlobalChatBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
+        GlobalChatBtn.Text = "Global Chat 💬"
+        GlobalChatBtn.Font = Enum.Font.GothamBold
+        GlobalChatBtn.Parent = Sidebar
+        Instance.new("UICorner", GlobalChatBtn).CornerRadius = UDim.new(0, 6)
+
+        local Footer = Instance.new("TextLabel")
+        Footer.Size = UDim2.new(1, -10, 0, 30)
+        Footer.Position = UDim2.new(0, 5, 1, -35)
+        Footer.BackgroundTransparency = 1
+        Footer.Text = "prepared by\n" .. ADMIN_USER
+        Footer.TextColor3 = Color3.fromRGB(120, 120, 130)
+        Footer.Font = Enum.Font.Gotham
+        Footer.TextSize = 11
+        Footer.Parent = Sidebar
+
+        local ContentArea = Instance.new("Frame")
+        ContentArea.Size = UDim2.new(1, -130, 1, -35)
+        ContentArea.Position = UDim2.new(0, 130, 0, 35)
+        ContentArea.BackgroundTransparency = 1
+        ContentArea.Parent = MainFrame
+
+        local IDInput = Instance.new("TextBox")
+        IDInput.Size = UDim2.new(0, 110, 0, 30)
+        IDInput.Position = UDim2.new(0, 10, 0, 10)
+        IDInput.PlaceholderText = "Audio ID"
+        IDInput.Text = ""
+        IDInput.TextColor3 = Color3.fromRGB(255, 255, 255)
+        IDInput.BackgroundColor3 = Color3.fromRGB(40, 40, 45)
+        IDInput.Font = Enum.Font.Gotham
+        IDInput.Parent = ContentArea
+        Instance.new("UICorner", IDInput).CornerRadius = UDim.new(0, 6)
+
+        IDInput:GetPropertyChangedSignal("Text"):Connect(function()
+            IDInput.Text = IDInput.Text:gsub("%D", "")
+        end)
+
+        local NameInput = Instance.new("TextBox")
+        NameInput.Size = UDim2.new(0, 160, 0, 30)
+        NameInput.Position = UDim2.new(0, 130, 0, 10)
+        NameInput.PlaceholderText = "Name (Required)"
+        NameInput.Text = ""
+        NameInput.TextColor3 = Color3.fromRGB(255, 255, 255)
+        NameInput.BackgroundColor3 = Color3.fromRGB(40, 40, 45)
+        NameInput.Font = Enum.Font.Gotham
+        NameInput.Parent = ContentArea
+        Instance.new("UICorner", NameInput).CornerRadius = UDim.new(0, 6)
+
+        local AddBtn = Instance.new("TextButton")
+        AddBtn.Size = UDim2.new(0, 70, 0, 30)
+        AddBtn.Position = UDim2.new(0, 300, 0, 10)
+        AddBtn.BackgroundColor3 = Color3.fromRGB(45, 160, 95)
+        AddBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+        AddBtn.Text = "Add"
+        AddBtn.Font = Enum.Font.GothamBold
+        AddBtn.Parent = ContentArea
+        Instance.new("UICorner", AddBtn).CornerRadius = UDim.new(0, 6)
+
+        local SearchBar = Instance.new("TextBox")
+        SearchBar.Size = UDim2.new(0, 360, 0, 30)
+        SearchBar.Position = UDim2.new(0, 10, 0, 50)
+        SearchBar.PlaceholderText = "🔍 Search Song Name or ID..."
+        SearchBar.Text = ""
+        SearchBar.TextColor3 = Color3.fromRGB(255, 255, 255)
+        SearchBar.BackgroundColor3 = Color3.fromRGB(35, 35, 40)
+        SearchBar.Font = Enum.Font.Gotham
+        SearchBar.Parent = ContentArea
+        Instance.new("UICorner", SearchBar).CornerRadius = UDim.new(0, 6)
+
+        local ScrollArea = Instance.new("ScrollingFrame")
+        ScrollArea.Size = UDim2.new(1, -20, 1, -100)
+        ScrollArea.Position = UDim2.new(0, 10, 0, 90)
+        ScrollArea.BackgroundTransparency = 1
+        ScrollArea.ScrollBarThickness = 4
+        ScrollArea.Parent = ContentArea
+
+        local UIListLayout = Instance.new("UIListLayout")
+        UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+        UIListLayout.Padding = UDim.new(0, 6)
+        UIListLayout.Parent = ScrollArea
+
+        local lastAddTick = 0
+        local loadSongs -- Forward declaration
+
+        local function addSongUI(songId, name, addedByName, addedByUserId, dbKey)
+            local Item = Instance.new("Frame")
+            Item.Size = UDim2.new(1, -5, 0, 45)
+            Item.BackgroundColor3 = Color3.fromRGB(40, 40, 45)
+            Instance.new("UICorner", Item).CornerRadius = UDim.new(0, 6)
+            
+            local PFP = Instance.new("ImageLabel")
+            PFP.Size = UDim2.new(0, 35, 0, 35)
+            PFP.Position = UDim2.new(0, 5, 0, 5)
+            PFP.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+            PFP.Parent = Item
+            Instance.new("UICorner", PFP).CornerRadius = UDim.new(1, 0)
+            
+            task.spawn(function()
+                local userId = tonumber(addedByUserId) or 1
+                local success, content = pcall(function()
+                    return Players:GetUserThumbnailAsync(userId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size48x48)
+                end)
+                if success and content then PFP.Image = content end
+            end)
+            
+            local InfoLabel = Instance.new("TextLabel")
+            InfoLabel.Size = UDim2.new(0.5, 0, 0.5, 0)
+            InfoLabel.Position = UDim2.new(0, 50, 0, 4)
+            InfoLabel.BackgroundTransparency = 1
+            InfoLabel.TextColor3 = Color3.fromRGB(240, 240, 240)
+            InfoLabel.TextXAlignment = Enum.TextXAlignment.Left
+            InfoLabel.Font = Enum.Font.GothamBold
+            InfoLabel.TextSize = 13
+            InfoLabel.Text = name .. " (" .. songId .. ")"
+            InfoLabel.Name = "InfoLabel"
+            InfoLabel.Parent = Item
+            
+            local AddedByLabel = Instance.new("TextLabel")
+            AddedByLabel.Size = UDim2.new(0.5, 0, 0.5, 0)
+            AddedByLabel.Position = UDim2.new(0, 50, 0, 22)
+            AddedByLabel.BackgroundTransparency = 1
+            AddedByLabel.TextColor3 = Color3.fromRGB(150, 150, 150)
+            AddedByLabel.TextXAlignment = Enum.TextXAlignment.Left
+            AddedByLabel.Font = Enum.Font.Gotham
+            AddedByLabel.TextSize = 11
+            AddedByLabel.Text = "Added by: " .. (addedByName or "Unknown")
+            AddedByLabel.Parent = Item
+            
+            local CopyBtn = Instance.new("TextButton")
+            CopyBtn.Size = UDim2.new(0, 60, 0, 25)
+            CopyBtn.Position = UDim2.new(1, -65, 0, 10)
+            CopyBtn.BackgroundColor3 = Color3.fromRGB(70, 130, 200)
+            CopyBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+            CopyBtn.Text = "Copy"
+            CopyBtn.Font = Enum.Font.Gotham
+            Instance.new("UICorner", CopyBtn).CornerRadius = UDim.new(0, 4)
+            CopyBtn.Parent = Item
+            
+            CopyBtn.MouseButton1Click:Connect(function()
+                setclipboard(tostring(songId))
+                CopyBtn.Text = "Copied!"
+                task.wait(1)
+                CopyBtn.Text = "Copy"
+            end)
+            
+            if LocalPlayer.Name == ADMIN_USER then
+                local DeleteBtn = Instance.new("TextButton")
+                DeleteBtn.Size = UDim2.new(0, 55, 0, 25)
+                DeleteBtn.Position = UDim2.new(1, -125, 0, 10)
+                DeleteBtn.BackgroundColor3 = Color3.fromRGB(200, 60, 60)
+                DeleteBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+                DeleteBtn.Text = "Delete"
+                DeleteBtn.Font = Enum.Font.Gotham
+                Instance.new("UICorner", DeleteBtn).CornerRadius = UDim.new(0, 4)
+                DeleteBtn.Parent = Item
+                
+                DeleteBtn.MouseButton1Click:Connect(function()
+                    task.spawn(function()
+                        pcall(function()
+                            request({ 
+                                Url = API_URL .. "/" .. tostring(dbKey), 
+                                Method = "DELETE" 
+                            })
+                        end)
+                        task.wait(0.5)
+                        loadSongs()
+                    end)
+                end)
+            end
+            
+            Item.Parent = ScrollArea
+            ScrollArea.CanvasSize = UDim2.new(0, 0, 0, UIListLayout.AbsoluteContentSize.Y + 10)
+        end
+
+        SearchBar:GetPropertyChangedSignal("Text"):Connect(function()
+            local query = string.lower(SearchBar.Text)
+            for _, item in ipairs(ScrollArea:GetChildren()) do
+                if item:IsA("Frame") then
+                    local info = item:FindFirstChild("InfoLabel")
+                    if info then
+                        if query == "" or string.find(string.lower(info.Text), query) then
+                            item.Visible = true
+                        else
+                            item.Visible = false
+                        end
+                    end
+                end
+            end
+            ScrollArea.CanvasSize = UDim2.new(0, 0, 0, UIListLayout.AbsoluteContentSize.Y + 10)
+        end)
+
+        loadSongs = function()
+            for _, v in ipairs(ScrollArea:GetChildren()) do
+                if v:IsA("Frame") then v:Destroy() end
+            end
+            
+            task.spawn(function()
+                local success, response = pcall(function() return game:HttpGet(API_URL) end)
+                if success and response then
+                    local decodedSuccess, data = pcall(function()
+                        return HttpService:JSONDecode(response)
+                    end)
+                    
+                    if decodedSuccess and type(data) == "table" then
+                        for _, song in ipairs(data) do
+                            local sName = song.name or "Unknown"
+                            local addedBy = song.addedBy or "Unknown"
+                            local uId = song.userId or 1
+                            local dbKey = song._id or song.id
+                            
+                            addSongUI(song.id, sName, addedBy, uId, dbKey)
+                        end
+                    end
+                end
+            end)
+        end
+
+        AddBtn.MouseButton1Click:Connect(function()
+            local sName = NameInput.Text
+            local sId = IDInput.Text
+            
+            if sName == "" or sName:match("^%s*$") then return end
+            if sId == "" or not tonumber(sId) then return end
+            
+            if tick() - lastAddTick < 60 then
+                AddBtn.Text = "Wait 1m!"
+                task.wait(1.5)
+                AddBtn.Text = "Add"
+                return
+            end
+            
+            local exists = false
+            local success, response = pcall(function() return game:HttpGet(API_URL) end)
+            if success and response then
+                local decodedSuccess, data = pcall(function() return HttpService:JSONDecode(response) end)
+                if decodedSuccess and type(data) == "table" then
+                    for _, song in ipairs(data) do
+                        if tostring(song.id) == tostring(sId) or string.lower(tostring(song.name)) == string.lower(tostring(sName)) then
+                            exists = true
+                            break
+                        end
+                    end
+                end
+            end
+            
+            if exists then
+                AddBtn.Text = "Exists!"
+                task.wait(1.5)
+                AddBtn.Text = "Add"
+                return
+            end
+            
+            lastAddTick = tick()
+            
+            local payload = HttpService:JSONEncode({
+                name = sName, 
+                id = sId,
+                addedBy = LocalPlayer.Name,
+                userId = tostring(LocalPlayer.UserId)
+            })
+            
+            task.spawn(function()
+                pcall(function()
+                    request({ 
+                        Url = API_URL, 
+                        Method = "POST", 
+                        Headers = {["Content-Type"] = "application/json"}, 
+                        Body = payload 
+                    })
+                end)
+                task.wait(0.5)
+                loadSongs()
+            end)
+            IDInput.Text = ""
+            NameInput.Text = ""
+        end)
+
+        GlobalChatBtn.MouseButton1Click:Connect(function()
+            GlobalChatBtn.Text = "Executing..."
+            task.spawn(function()
+                pcall(function() loadstring(game:HttpGet("https://raw.githubusercontent.com/halilibrahimseviml1/ChatNoAgeVerification/refs/heads/main/NoAgeVerification"))() end)
+                task.wait(1)
+                GlobalChatBtn.Text = "Executed! ✔️"
+                task.wait(2)
+                GlobalChatBtn.Text = "Global Chat 💬"
+            end)
+        end)
+
+        MainTabBtn.MouseButton1Click:Connect(function()
+            ContentArea.Visible = true
+            MainTabBtn.BackgroundColor3 = Color3.fromRGB(45, 45, 55)
+            MainTabBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+            GlobalChatBtn.BackgroundColor3 = Color3.fromRGB(35, 35, 45)
+            GlobalChatBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
+        end)
+
+        loadSongs()
+    else
+        KeyBox.Text = "Wrong Key!"
+        task.wait(1)
+        KeyBox.Text = ""
+    end
+end)
